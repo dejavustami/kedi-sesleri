@@ -1,123 +1,106 @@
 :root {
     --primary: #6c5ce7;
-    --secondary: #a29bfe;
-    --dark: #2d3436;
-    --light: #fab1a0;
+    --bg-color: #f0f2f5;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f8f9fa;
+    /* Arka plana pati deseni ekleme */
+    background-color: var(--bg-color);
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm10 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM10 20c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm10 10c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z' fill='%236c5ce7' fill-opacity='0.05'/%3E%3C/svg%3E");
     margin: 0;
-    color: var(--dark);
-    line-height: 1.6;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 5%;
-    background: white;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+/* Köşede Zıplayan Kedi Animasyonu */
+.floating-cat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    animation: bounce 2s infinite;
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-.ad-placeholder {
-    background: #f1f2f6;
-    padding: 8px 15px;
-    border: 1px dashed #ccc;
-    font-size: 11px;
-    border-radius: 5px;
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(20deg); }
 }
 
 header {
-    padding: 60px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(rgba(108, 92, 231, 0.8), rgba(108, 92, 231, 0.8)), 
+                url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1000');
+    background-size: cover;
+    background-position: center;
     color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
-header h1 { margin: 0; font-size: 2.5rem; }
+h1 { font-family: 'Fredoka One', cursive; font-size: 3rem; margin: 0; }
 
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 50px 8%;
+    gap: 25px;
+    padding: 40px 10%;
 }
 
 .card {
+    position: relative;
     background: white;
-    border-radius: 20px;
+    border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: 0.4s;
+    border: 3px solid white;
 }
 
-.card:hover { 
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+.card:hover { transform: scale(1.05); border-color: var(--primary); }
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    z-index: 10;
 }
 
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
+.red { background: #ff4757; }
+.green { background: #2ed573; }
+.orange { background: #ffa502; }
+.blue { background: #1e90ff; }
+.purple { background: #a29bfe; }
 
-.info { padding: 25px; text-align: center; }
+.card img { width: 100%; height: 250px; object-fit: cover; }
 
 .btn-play {
     background: var(--primary);
     color: white;
     border: none;
     padding: 12px 30px;
-    border-radius: 50px;
+    border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 15px;
+    width: 100%;
     transition: 0.3s;
 }
 
-.btn-play:hover { background: #5849be; transform: scale(1.05); }
+.btn-play:active { transform: scale(0.9); }
 
-.donation-box {
-    background: #ffeaa7;
-    padding: 50px 20px;
-    text-align: center;
-    margin: 40px 8%;
-    border-radius: 30px;
-}
+.donation-section { text-align: center; padding-bottom: 50px; }
 
 .donate-btn {
-    display: inline-block;
     background: #2d3436;
     color: white;
+    padding: 15px 40px;
     text-decoration: none;
-    padding: 18px 35px;
-    border-radius: 15px;
-    margin-top: 20px;
+    border-radius: 50px;
     font-weight: bold;
-    transition: 0.3s;
-}
-
-.donate-btn:hover { background: #000; transform: translateY(-3px); }
-
-footer {
-    padding: 30px;
-    text-align: center;
-    background: #f1f2f6;
-    font-size: 14px;
-}
-
-@media (max-width: 600px) {
-    header h1 { font-size: 1.8rem; }
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
