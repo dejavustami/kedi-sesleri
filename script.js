@@ -1,11 +1,12 @@
-// Fareyi Takip Eden Kedi
 const cat = document.getElementById('cursor-cat');
+
+// Fare takibi
 document.addEventListener('mousemove', (e) => {
-    cat.style.left = e.clientX + 'px';
-    cat.style.top = e.clientY + 'px';
+    cat.style.left = (e.clientX - 20) + 'px';
+    cat.style.top = (e.clientY - 20) + 'px';
 });
 
-// Ses Çalma Fonksiyonu
+// Ses çalma
 function playSound(moodId) {
     const allAudios = document.querySelectorAll('audio');
     allAudios.forEach(audio => {
@@ -15,12 +16,8 @@ function playSound(moodId) {
 
     const sound = document.getElementById(moodId);
     if (sound) {
-        // Tarayıcı hatasını önlemek için promise kontrolü
-        const playPromise = sound.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.log("Ses engellendi. Lütfen 'Sesleri Aktifleştir' butonuna basın.");
-            });
-        }
+        sound.play().catch(err => {
+            alert("Lütfen önce 'Sesleri Aktifleştir' butonuna basın!");
+        });
     }
 }
