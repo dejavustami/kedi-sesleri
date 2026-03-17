@@ -1,27 +1,39 @@
-function getRandomMeow() {
+// Fare Takibi (7 Saniye Gecikme)
+const cat = document.getElementById('follower-cat');
+document.addEventListener('mousemove', (e) => {
+    cat.style.left = (e.clientX - 25) + 'px';
+    cat.style.top = (e.clientY - 25) + 'px';
+});
+
+// Gerçek Kedi Sesleri Listesi (Doğrudan çalışan mp3'ler)
+const meowSounds = [
+    "https://www.soundjay.com/nature/sounds/cat-meow-01.mp3",
+    "https://www.soundjay.com/nature/sounds/cat-meow-02.mp3",
+    "https://www.soundjay.com/nature/sounds/cat-meow-03.mp3",
+    "https://www.soundjay.com/nature/sounds/cat-meow-04.mp3",
+    "https://assets.mixkit.co/active_storage/sfx/2381/2381-preview.mp3",
+    "https://www.myinstants.com/media/sounds/cat-meow.mp3",
+    "https://www.myinstants.com/media/sounds/short-meow.mp3"
+];
+
+function playRealMeow() {
     const audio = document.getElementById('cat-audio');
     const status = document.getElementById('status-text');
     
-    // 200+ ses barındıran rastgele bir kedi sesi kaynağı
-    // Her tıklandığında URL'nin sonuna rastgele bir sayı ekleyerek farklı ses gelmesini sağlıyoruz
-    const randomNum = Math.floor(Math.random() * 200) + 1;
+    // Rastgele ses seç
+    const randomSound = meowSounds[Math.floor(Math.random() * meowSounds.length)];
     
-    // Açık kaynaklı bir kedi sesi kütüphanesi (Örnek olarak MyInstants veya benzeri bir CDN kullanıyoruz)
-    // Eğer bu link zamanla değişirse, kedi sesi mp3'ü veren herhangi bir linkle güncellenebilir.
-    const audioUrl = `https://www.myinstants.com/media/sounds/meow.mp3?v=${randomNum}`;
-
-    status.innerText = "Miyavlatılıyor... 🐾";
+    audio.src = randomSound;
+    audio.volume = 0.4; // SES SEVİYESİ %40'A DÜŞÜRÜLDÜ (Rahatsız etmez)
     
-    audio.src = audioUrl;
-    audio.play().catch(error => {
-        status.innerText = "Hata: Önce sayfada herhangi bir yere tıkla!";
-        console.log("Ses oynatılamadı, kullanıcı etkileşimi gerekiyor.");
+    audio.play().then(() => {
+        status.innerText = "Miyav! 🐾";
+    }).catch(err => {
+        status.innerText = "Lütfen önce sayfaya bir kez tıklayın!";
     });
 
-    // Buton efektini görselleştir
-    document.getElementById('meow-btn').style.backgroundColor = "#fd79a8";
-    setTimeout(() => {
-        document.getElementById('meow-btn').style.backgroundColor = "#6c5ce7";
-        status.innerText = "Yenisi için tekrar bas!";
-    }, 500);
+    // Buton rengi değişsin
+    const btn = document.getElementById('meow-btn');
+    btn.style.background = "#fd79a8";
+    setTimeout(() => { btn.style.background = "#6c5ce7"; }, 300);
 }
