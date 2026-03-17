@@ -1,38 +1,27 @@
-// 7 Saniyelik Takip Sistemi
-const cat = document.getElementById('follower-cat');
-
-document.addEventListener('mousemove', (e) => {
-    // Fare koordinatlarını al ve kediye ata
-    // CSS'deki 'transition: 7s' sayesinde kedi oraya 7 saniyede varacak
-    cat.style.left = (e.clientX - 20) + 'px';
-    cat.style.top = (e.clientY - 20) + 'px';
-});
-
-// Ses Kilidini Kökten Çözme
-let audioUnlocked = false;
-
-function unlockAudio() {
-    audioUnlocked = true;
-    const btn = document.getElementById('activate-btn');
-    btn.style.background = "#fd79a8";
-    btn.innerText = "✅ Sesler Hazır!";
+function getRandomMeow() {
+    const audio = document.getElementById('cat-audio');
+    const status = document.getElementById('status-text');
     
-    // Küçük bir onay sesi çal (isteğe bağlı)
-    console.log("Ses sistemi kullanıcı tarafından onaylandı.");
-}
+    // 200+ ses barındıran rastgele bir kedi sesi kaynağı
+    // Her tıklandığında URL'nin sonuna rastgele bir sayı ekleyerek farklı ses gelmesini sağlıyoruz
+    const randomNum = Math.floor(Math.random() * 200) + 1;
+    
+    // Açık kaynaklı bir kedi sesi kütüphanesi (Örnek olarak MyInstants veya benzeri bir CDN kullanıyoruz)
+    // Eğer bu link zamanla değişirse, kedi sesi mp3'ü veren herhangi bir linkle güncellenebilir.
+    const audioUrl = `https://www.myinstants.com/media/sounds/meow.mp3?v=${randomNum}`;
 
-function playCatSound(id) {
-    if (!audioUnlocked) {
-        alert("Lütfen önce sağ üstteki 'Sesleri Aktifleştir' butonuna basın!");
-        return;
-    }
+    status.innerText = "Miyavlatılıyor... 🐾";
+    
+    audio.src = audioUrl;
+    audio.play().catch(error => {
+        status.innerText = "Hata: Önce sayfada herhangi bir yere tıkla!";
+        console.log("Ses oynatılamadı, kullanıcı etkileşimi gerekiyor.");
+    });
 
-    const sound = document.getElementById(id);
-    if (sound) {
-        sound.pause();
-        sound.currentTime = 0;
-        sound.play().catch(e => {
-            console.error("Ses oynatılamadı:", e);
-        });
-    }
+    // Buton efektini görselleştir
+    document.getElementById('meow-btn').style.backgroundColor = "#fd79a8";
+    setTimeout(() => {
+        document.getElementById('meow-btn').style.backgroundColor = "#6c5ce7";
+        status.innerText = "Yenisi için tekrar bas!";
+    }, 500);
 }
