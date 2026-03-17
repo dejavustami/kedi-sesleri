@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatMood | Kedi Dili Sözlüğü</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🐾 CatMood</div>
+        <div class="ad-placeholder">Buraya Google Reklamı Gelecek</div>
+    </nav>
+
+    <header>
+        <h1>Kediniz Ne Anlatıyor?</h1>
+        <p>Ruh halini seç, sesini dinle ve onu daha iyi anla.</p>
+    </header>
+
+    <main class="container">
+        <div class="card" onclick="playSound('angry')">
+            <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&w=300&q=80" alt="Sinirli Kedi">
+            <div class="info">
+                <h3>Sinirli / Savunmacı</h3>
+                <button class="btn-play">Sesi Dinle</button>
+            </div>
+            <audio id="angry" src="https://www.soundjay.com/nature/sounds/cat-hiss-01.mp3"></audio>
+        </div>
+
+        <div class="card" onclick="playSound('happy')">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=300&q=80" alt="Mutlu Kedi">
+            <div class="info">
+                <h3>Mutlu / Mırıltı</h3>
+                <button class="btn-play">Sesi Dinle</button>
+            </div>
+            <audio id="happy" src="https://www.soundjay.com/nature/sounds/cat-purr-01.mp3"></audio>
+        </div>
+
+        <div class="card" onclick="playSound('hungry')">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fef78a5?auto=format&fit=crop&w=300&q=80" alt="Acıkmış Kedi">
+            <div class="info">
+                <h3>Acıkmış / Miyavlama</h3>
+                <button class="btn-play">Sesi Dinle</button>
+            </div>
+            <audio id="hungry" src="https://www.soundjay.com/nature/sounds/cat-meow-01.mp3"></audio>
+        </div>
+    </main>
+
+    <section class="donation-box">
+        <h3>Bize Destek Olmak İster misiniz?</h3>
+        <p>Sitemizi geliştirmek ve kedilere mama almak için bağış yapabilirsiniz.</p>
+        <a href="#" class="donate-btn">☕ Bana Bir Kahve Ismarla</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CatMood - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
