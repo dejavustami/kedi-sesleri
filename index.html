@@ -3,79 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatMood Pro | Kedi Dili Rehberi</title>
+    <title>CatMood Ultra | Kedi Dili</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="floating-cat">🐱🎾</div>
+    <div id="cursor-cat">🐱</div>
 
     <nav>
-        <div class="logo">🐾 CatMood <span style="font-size: 12px; vertical-align: middle;">PRO</span></div>
-        <div class="ad-placeholder">Google Ads Area</div>
+        <div class="logo">🐾 CatMood Ultra</div>
+        <button id="enable-audio" onclick="this.style.display='none'">🔊 Sesleri Aktifleştir</button>
     </nav>
 
     <header>
-        <h1>Kediniz Ne Anlatıyor?</h1>
-        <p>Patili dostunuzun gizli dünyasını keşfedin.</p>
+        <h1>Kediniz Ne Söylüyor?</h1>
+        <p>Onun dünyasını pikseller ve mırıltılarla keşfedin!</p>
     </header>
 
     <main class="container">
-        <div class="card" onclick="playSound('angry')">
-            <div class="badge red">SİNİRLİ</div>
-            <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?w=400" alt="Sinirli">
-            <div class="info">
-                <h3>Savunma Modu</h3>
-                <button class="btn-play">Sesi Dinle</button>
-            </div>
-            <audio id="angry" src="https://www.myinstants.com/media/sounds/hissing-cat.mp3"></audio>
+        <div class="card angry" onclick="playSound('angry')">
+            <div class="badge">SİNİRLİ</div>
+            <img src="https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=400" alt="Sinirli Kedi">
+            <div class="info"><h3>Savunma Modu</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="angry" src="https://www.soundjay.com/nature/sounds/cat-hiss-01.mp3"></audio>
         </div>
 
-        <div class="card" onclick="playSound('happy')">
-            <div class="badge green">MUTLU</div>
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400" alt="Mutlu">
-            <div class="info">
-                <h3>Huzurlu Mırıltı</h3>
-                <button class="btn-play">Sesi Dinle</button>
-            </div>
-            <audio id="happy" src="https://www.myinstants.com/media/sounds/cat-purring.mp3"></audio>
+        <div class="card happy" onclick="playSound('happy')">
+            <div class="badge">MUTLU</div>
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400" alt="Mutlu Kedi">
+            <div class="info"><h3>Huzurlu Mırıltı</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="happy" src="https://www.soundjay.com/nature/sounds/cat-purr-01.mp3"></audio>
         </div>
 
-        <div class="card" onclick="playSound('hungry')">
-            <div class="badge orange">AÇIKMIŞ</div>
-            <img src="https://images.unsplash.com/photo-1573865526739-10659fef78a5?w=400" alt="Aç">
-            <div class="info">
-                <h3>Yemek İstiyorum</h3>
-                <button class="btn-play">Sesi Dinle</button>
-            </div>
-            <audio id="hungry" src="https://www.myinstants.com/media/sounds/classic_meow.mp3"></audio>
+        <div class="card play" onclick="playSound('play')">
+            <div class="badge">OYUN ZAMANI</div>
+            <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?w=400" alt="Oyunbaz Kedi">
+            <div class="info"><h3>Hadi Oynayalım!</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="play" src="https://www.soundjay.com/nature/sounds/cat-meow-03.mp3"></audio>
         </div>
 
-        <div class="card" onclick="playSound('playful')">
-            <div class="badge blue">OYUNBAZ</div>
-            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=400" alt="Oyun">
-            <div class="info">
-                <h3>Avlanma Modu</h3>
-                <button class="btn-play">Sesi Dinle</button>
-            </div>
-            <audio id="playful" src="https://www.myinstants.com/media/sounds/cat-meow-8246.mp3"></audio>
+        <div class="card hungry" onclick="playSound('hungry')">
+            <div class="badge">AÇIKMIŞ</div>
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400" alt="Aç Kedi">
+            <div class="info"><h3>Karnım Acıktı</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="hungry" src="https://www.soundjay.com/nature/sounds/cat-meow-04.mp3"></audio>
         </div>
 
-        <div class="card" onclick="playSound('tired')">
-            <div class="badge purple">YORGUN</div>
-            <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400" alt="Yorgun">
-            <div class="info">
-                <h3>Uykum Var</h3>
-                <button class="btn-play">Sesi Dinle</button>
-            </div>
-            <audio id="tired" src="https://www.myinstants.com/media/sounds/cat-yawn.mp3"></audio>
+        <div class="card hunting" onclick="playSound('hunt')">
+            <div class="badge">PUSUDA</div>
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=400" alt="Avcı Kedi">
+            <div class="info"><h3>Hedef Göründü</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="hunt" src="https://assets.mixkit.co/active_storage/sfx/2381/2381-preview.mp3"></audio>
+        </div>
+
+        <div class="card sad" onclick="playSound('sad')">
+            <div class="badge">ÜZGÜN</div>
+            <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=400" alt="Üzgün Kedi">
+            <div class="info"><h3>Biraz Yalnızım</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="sad" src="https://www.myinstants.com/media/sounds/crying-cat.mp3"></audio>
+        </div>
+
+        <div class="card love" onclick="playSound('love')">
+            <div class="badge">SENİ SEVİYOR</div>
+            <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=400" alt="Seven Kedi">
+            <div class="info"><h3>Kalp Atışı</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="love" src="https://www.soundjay.com/nature/sounds/cat-purr-01.mp3"></audio>
+        </div>
+
+        <div class="card attention" onclick="playSound('attn')">
+            <div class="badge">İLGİ İSTİYOR</div>
+            <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400" alt="İlgi İsteyen Kedi">
+            <div class="info"><h3>Bana Bak!</h3><button class="btn-play">Sesi Dinle</button></div>
+            <audio id="attn" src="https://www.soundjay.com/nature/sounds/cat-meow-01.mp3"></audio>
         </div>
     </main>
-
-    <div class="donation-section">
-        <a href="#" class="donate-btn">☕ Kedilere Mama Bağışla</a>
-    </div>
 
     <script src="script.js"></script>
 </body>
