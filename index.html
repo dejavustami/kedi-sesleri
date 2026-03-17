@@ -3,73 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatMood Ultra | Canlı</title>
+    <title>Sadece Miyav! | CatMood</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="follower-cat">🐱</div>
+    <div class="main-container">
+        <div class="cat-icon">🐱</div>
+        <h1>Her Tıklama Yeni Bir Miyav</h1>
+        
+        <button id="meow-btn" onclick="getRandomMeow()">CLICK FOR MEOW</button>
+        
+        <p id="status-text">Butona bas ve rastgele sesin tadını çıkar!</p>
+    </div>
 
-    <nav>
-        <div class="logo">🐾 CatMood Ultra</div>
-        <div class="ad-placeholder">Google Ads Area</div>
-        <button id="activate-btn" onclick="unlockAudio()">🔊 Sesleri Aktifleştir</button>
-    </nav>
-
-    <header>
-        <h1>Kediniz Ne Söylüyor?</h1>
-        <p>Piksel dostun 7 saniye geriden seni takip ediyor!</p>
-    </header>
-
-    <main class="container">
-        <div class="card" onclick="playCatSound('sad')">
-            <div class="badge gray">ÜZGÜN</div>
-            <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=400" alt="Üzgün">
-            <div class="info"><h3>Biraz Yalnızım</h3><button class="btn-play">Miyavla</button></div>
-            <audio id="sad" src="https://www.soundjay.com/nature/sounds/cat-meow-01.mp3" preload="auto"></audio>
-        </div>
-
-        <div class="card" onclick="playCatSound('happy')">
-            <div class="badge green">MUTLU</div>
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400" alt="Mutlu">
-            <div class="info"><h3>Huzurlu Mırıltı</h3><button class="btn-play">Mırılda</button></div>
-            <audio id="happy" src="https://www.soundjay.com/nature/sounds/cat-purr-01.mp3" preload="auto"></audio>
-        </div>
-
-        <div class="card" onclick="playCatSound('play')">
-            <div class="badge blue">OYUN MODU</div>
-            <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?w=400" alt="Oyun">
-            <div class="info"><h3>Hadi Koşalım!</h3><button class="btn-play">Heyecanlı Miyav</button></div>
-            <audio id="play" src="https://www.soundjay.com/nature/sounds/cat-meow-03.mp3" preload="auto"></audio>
-        </div>
-
-        <div class="card" onclick="playCatSound('hungry')">
-            <div class="badge orange">AÇIKMIŞ</div>
-            <img src="https://images.unsplash.com/photo-1573865526739-10659fef78a5?w=400" alt="Aç">
-            <div class="info"><h3>Mama Zamanı mı?</h3><button class="btn-play">Israrcı Miyav</button></div>
-            <audio id="hungry" src="https://www.soundjay.com/nature/sounds/cat-meow-04.mp3" preload="auto"></audio>
-        </div>
-
-        <div class="card" onclick="playCatSound('hunt')">
-            <div class="badge dark">AVCI</div>
-            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=400" alt="Avcı">
-            <div class="info"><h3>Pusudayım</h3><button class="btn-play">Cıkcıklama</button></div>
-            <audio id="hunt" src="https://assets.mixkit.co/active_storage/sfx/2381/2381-preview.mp3" preload="auto"></audio>
-        </div>
-
-        <div class="card" onclick="playCatSound('angry')">
-            <div class="badge red">SİNİRLİ</div>
-            <img src="https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=400" alt="Sinirli">
-            <div class="info"><h3>Yaklaşma!</h3><button class="btn-play">Tıslama</button></div>
-            <audio id="angry" src="https://www.soundjay.com/nature/sounds/cat-hiss-01.mp3" preload="auto"></audio>
-        </div>
-    </main>
-
-    <footer class="footer-area">
-        <div class="ad-footer">Google Ad Slot</div>
-        <a href="#" class="donate-btn">☕ Kedilere Mama Al</a>
-    </footer>
+    <audio id="cat-audio"></audio>
 
     <script src="script.js"></script>
 </body>
