@@ -1,49 +1,33 @@
 body {
     margin: 0;
-    height: 100vh;
+    padding: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-family: 'Fredoka', sans-serif;
-    background-color: #fce4ec;
-    overflow: hidden;
+    align-items: center;
+    height: 100vh;
+    background-color: #fce4ec; /* Arka plan rengi */
+    font-family: 'Arial', sans-serif;
 }
 
-/* 7 Saniye Gecikmeli Takip Eden Kedi */
-#follower-cat {
-    position: fixed;
-    width: 50px;
-    pointer-events: none;
-    z-index: 10000;
-    transition: all 7s cubic-bezier(0.1, 0.1, 0.1, 1);
-    left: 0;
-    top: 0;
-}
-
-.main-container {
-    text-align: center;
-    background: white;
-    padding: 50px;
-    border-radius: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-#meow-btn {
-    background: #6c5ce7;
-    color: white;
-    border: none;
-    padding: 20px 50px;
-    font-size: 22px;
+.main-button {
+    padding: 25px 60px;
+    font-size: 24px;
     font-weight: bold;
-    border-radius: 100px;
+    color: white;
+    background-color: #6c5ce7;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px 0 #4834d4;
-    transition: 0.1s;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-#meow-btn:active {
-    transform: translateY(4px);
-    box-shadow: 0 4px 0 #4834d4;
+.main-button:hover {
+    background-color: #a29bfe;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
 
-#status-text { margin-top: 20px; color: #888; }
+.main-button:active {
+    transform: translateY(1px);
+}
