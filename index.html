@@ -3,87 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatMood PRO | Ultra</title>
+    <title>CatMood Ultra | Canlı</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp3eWNxbmZnbnl4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z4Z3Z&ep=v1_gifs_search&rid=giphy.gif&ct=s" id="follower" style="width: 40px; position: absolute; pointer-events: none; z-index: 9999;">
+    <div id="follower-cat">🐱</div>
 
     <nav>
         <div class="logo">🐾 CatMood Ultra</div>
-        <div class="ad-top">Buraya Google Reklamı Gelecek</div>
-        <button id="enable-audio-btn" onclick="activateAudio()">🔊 Sesleri Aktifleştir</button>
+        <div class="ad-placeholder">Google Ads Area</div>
+        <button id="activate-btn" onclick="unlockAudio()">🔊 Sesleri Aktifleştir</button>
     </nav>
 
     <header>
         <h1>Kediniz Ne Söylüyor?</h1>
-        <p>Piksel dostunla mırıltıların dünyasına hoş geldin!</p>
+        <p>Piksel dostun 7 saniye geriden seni takip ediyor!</p>
     </header>
 
     <main class="container">
-        <div class="card" onclick="playSound('sad')">
+        <div class="card" onclick="playCatSound('sad')">
             <div class="badge gray">ÜZGÜN</div>
             <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=400" alt="Üzgün">
-            <div class="info"><h3>Biraz Yalnızım...</h3><button class="btn-play">Miyavla</button></div>
-            <audio id="sad" src="https://www.myinstants.com/media/sounds/crying-cat.mp3"></audio>
+            <div class="info"><h3>Biraz Yalnızım</h3><button class="btn-play">Miyavla</button></div>
+            <audio id="sad" src="https://www.soundjay.com/nature/sounds/cat-meow-01.mp3" preload="auto"></audio>
         </div>
 
-        <div class="card" onclick="playSound('happy')">
+        <div class="card" onclick="playCatSound('happy')">
             <div class="badge green">MUTLU</div>
             <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400" alt="Mutlu">
             <div class="info"><h3>Huzurlu Mırıltı</h3><button class="btn-play">Mırılda</button></div>
-            <audio id="happy" src="https://www.soundjay.com/nature/sounds/cat-purr-01.mp3"></audio>
+            <audio id="happy" src="https://www.soundjay.com/nature/sounds/cat-purr-01.mp3" preload="auto"></audio>
         </div>
 
-        <div class="card" onclick="playSound('play')">
+        <div class="card" onclick="playCatSound('play')">
             <div class="badge blue">OYUN MODU</div>
             <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?w=400" alt="Oyun">
             <div class="info"><h3>Hadi Koşalım!</h3><button class="btn-play">Heyecanlı Miyav</button></div>
-            <audio id="play" src="https://www.soundjay.com/nature/sounds/cat-meow-03.mp3"></audio>
+            <audio id="play" src="https://www.soundjay.com/nature/sounds/cat-meow-03.mp3" preload="auto"></audio>
         </div>
 
-        <div class="card" onclick="playSound('hungry')">
+        <div class="card" onclick="playCatSound('hungry')">
             <div class="badge orange">AÇIKMIŞ</div>
             <img src="https://images.unsplash.com/photo-1573865526739-10659fef78a5?w=400" alt="Aç">
             <div class="info"><h3>Mama Zamanı mı?</h3><button class="btn-play">Israrcı Miyav</button></div>
-            <audio id="hungry" src="https://www.soundjay.com/nature/sounds/cat-meow-04.mp3"></audio>
+            <audio id="hungry" src="https://www.soundjay.com/nature/sounds/cat-meow-04.mp3" preload="auto"></audio>
         </div>
 
-        <div class="card" onclick="playSound('hunt')">
+        <div class="card" onclick="playCatSound('hunt')">
             <div class="badge dark">AVCI</div>
             <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=400" alt="Avcı">
-            <div class="info"><h3>Hedef Göründü</h3><button class="btn-play">Cıkcıklama</button></div>
-            <audio id="hunt" src="https://assets.mixkit.co/active_storage/sfx/2381/2381-preview.mp3"></audio>
+            <div class="info"><h3>Pusudayım</h3><button class="btn-play">Cıkcıklama</button></div>
+            <audio id="hunt" src="https://assets.mixkit.co/active_storage/sfx/2381/2381-preview.mp3" preload="auto"></audio>
         </div>
 
-        <div class="card" onclick="playSound('angry')">
+        <div class="card" onclick="playCatSound('angry')">
             <div class="badge red">SİNİRLİ</div>
             <img src="https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=400" alt="Sinirli">
             <div class="info"><h3>Yaklaşma!</h3><button class="btn-play">Tıslama</button></div>
-            <audio id="angry" src="https://www.soundjay.com/nature/sounds/cat-hiss-01.mp3"></audio>
-        </div>
-
-        <div class="card" onclick="playSound('love')">
-            <div class="badge pink">SEVGİ DOLU</div>
-            <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=400" alt="Sevgi">
-            <div class="info"><h3>İyi ki Varsın</h3><button class="btn-play">Kısa Miyav</button></div>
-            <audio id="love" src="https://www.soundjay.com/nature/sounds/cat-meow-01.mp3"></audio>
-        </div>
-
-        <div class="card" onclick="playSound('attn')">
-            <div class="badge yellow">İLGİ İSTİYOR</div>
-            <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400" alt="İlgi">
-            <div class="info"><h3>Yeterince Sevmedin</h3><button class="btn-play">Miyavv!</button></div>
-            <audio id="attn" src="https://www.soundjay.com/nature/sounds/cat-meow-02.mp3"></audio>
+            <audio id="angry" src="https://www.soundjay.com/nature/sounds/cat-hiss-01.mp3" preload="auto"></audio>
         </div>
     </main>
 
-    <section class="bottom-area">
-        <div class="ad-box">Buraya Yan Reklam Alanı</div>
-        <a href="#" class="donate-btn">☕ Bana Bir Mama Ismarla</a>
-    </section>
+    <footer class="footer-area">
+        <div class="ad-footer">Google Ad Slot</div>
+        <a href="#" class="donate-btn">☕ Kedilere Mama Al</a>
+    </footer>
 
     <script src="script.js"></script>
 </body>
