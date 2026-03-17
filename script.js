@@ -1,39 +1,11 @@
-// Fare Takibi (7 Saniye Gecikme)
-const cat = document.getElementById('follower-cat');
-document.addEventListener('mousemove', (e) => {
-    cat.style.left = (e.clientX - 25) + 'px';
-    cat.style.top = (e.clientY - 25) + 'px';
-});
+const button = document.getElementById('meowButton');
+// Ses dosyanın yolunu buraya yaz
+const audio = new Audio('2026-03-17 14-33-43 (mp3cut.net).mp3'); 
 
-// Gerçek Kedi Sesleri Listesi (Doğrudan çalışan mp3'ler)
-const meowSounds = [
-    "https://www.soundjay.com/nature/sounds/cat-meow-01.mp3",
-    "https://www.soundjay.com/nature/sounds/cat-meow-02.mp3",
-    "https://www.soundjay.com/nature/sounds/cat-meow-03.mp3",
-    "https://www.soundjay.com/nature/sounds/cat-meow-04.mp3",
-    "https://assets.mixkit.co/active_storage/sfx/2381/2381-preview.mp3",
-    "https://www.myinstants.com/media/sounds/cat-meow.mp3",
-    "https://www.myinstants.com/media/sounds/short-meow.mp3"
-];
-
-function playRealMeow() {
-    const audio = document.getElementById('cat-audio');
-    const status = document.getElementById('status-text');
-    
-    // Rastgele ses seç
-    const randomSound = meowSounds[Math.floor(Math.random() * meowSounds.length)];
-    
-    audio.src = randomSound;
-    audio.volume = 0.4; // SES SEVİYESİ %40'A DÜŞÜRÜLDÜ (Rahatsız etmez)
-    
-    audio.play().then(() => {
-        status.innerText = "Miyav! 🐾";
-    }).catch(err => {
-        status.innerText = "Lütfen önce sayfaya bir kez tıklayın!";
+button.addEventListener('click', () => {
+    // Ses zaten çalıyorsa başa sar (böylece her tıklamada tepki verir)
+    audio.currentTime = 0; 
+    audio.play().catch(error => {
+        console.log("Ses çalma hatası:", error);
     });
-
-    // Buton rengi değişsin
-    const btn = document.getElementById('meow-btn');
-    btn.style.background = "#fd79a8";
-    setTimeout(() => { btn.style.background = "#6c5ce7"; }, 300);
-}
+});
