@@ -1,23 +1,29 @@
-const cat = document.getElementById('cursor-cat');
+const follower = document.getElementById('follower');
 
-// Fare takibi
+// Piksel Kedi Fareyi Takip Etsin
 document.addEventListener('mousemove', (e) => {
-    cat.style.left = (e.clientX - 20) + 'px';
-    cat.style.top = (e.clientY - 20) + 'px';
+    // Hafif gecikme efekti için delay ekliyoruz
+    setTimeout(() => {
+        follower.style.left = (e.pageX + 15) + 'px';
+        follower.style.top = (e.pageY + 15) + 'px';
+    }, 50);
 });
 
-// Ses çalma
-function playSound(moodId) {
-    const allAudios = document.querySelectorAll('audio');
-    allAudios.forEach(audio => {
-        audio.pause();
-        audio.currentTime = 0;
-    });
+// Sesleri Aktifleştirme Fonksiyonu
+function activateAudio() {
+    // Tarayıcıya ses çalma yetkisi vermek için boş bir ses tetikliyoruz
+    const emptyAudio = new Audio();
+    emptyAudio.play().catch(() => {});
+    document.getElementById('enable-audio-btn').innerText = "✅ Aktif!";
+}
 
-    const sound = document.getElementById(moodId);
+// Miyavlama Fonksiyonu
+function playSound(id) {
+    const sound = document.getElementById(id);
     if (sound) {
+        sound.currentTime = 0; // Başa sar
         sound.play().catch(err => {
-            alert("Lütfen önce 'Sesleri Aktifleştir' butonuna basın!");
+            alert("Lütfen önce yukarıdaki 'Sesleri Aktifleştir' butonuna basın!");
         });
     }
 }
