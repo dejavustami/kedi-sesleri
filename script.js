@@ -1,28 +1,26 @@
+// Fareyi Takip Eden Kedi
+const cat = document.getElementById('cursor-cat');
+document.addEventListener('mousemove', (e) => {
+    cat.style.left = e.clientX + 'px';
+    cat.style.top = e.clientY + 'px';
+});
+
+// Ses Çalma Fonksiyonu
 function playSound(moodId) {
-    // Sayfadaki tüm sesleri bul
     const allAudios = document.querySelectorAll('audio');
-    
-    // Eğer hali hazırda bir ses çalıyorsa onu durdur ve başa sar
     allAudios.forEach(audio => {
         audio.pause();
         audio.currentTime = 0;
     });
 
-    // Tıklanan karta ait sesi bul ve oynat
     const sound = document.getElementById(moodId);
     if (sound) {
-        sound.play().catch(error => {
-            console.log("Ses oynatılamadı, kullanıcı etkileşimi gerekiyor olabilir:", error);
-        });
+        // Tarayıcı hatasını önlemek için promise kontrolü
+        const playPromise = sound.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log("Ses engellendi. Lütfen 'Sesleri Aktifleştir' butonuna basın.");
+            });
+        }
     }
 }
-
-// Kartlara tıklandığında butonun da görsel bir tepki vermesi için küçük bir efekt
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mousedown', () => {
-        card.style.transform = 'scale(0.95)';
-    });
-    card.addEventListener('mouseup', () => {
-        card.style.transform = 'translateY(-10px)';
-    });
-});
