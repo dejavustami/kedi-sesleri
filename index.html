@@ -3,60 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatMood | Kedi Dili Sözlüğü</title>
+    <title>CatMood Pro | Kedi Dili Rehberi</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <div class="floating-cat">🐱🎾</div>
+
     <nav>
-        <div class="logo">🐾 CatMood</div>
-        <div class="ad-placeholder">Buraya Google Reklamı Gelecek</div>
+        <div class="logo">🐾 CatMood <span style="font-size: 12px; vertical-align: middle;">PRO</span></div>
+        <div class="ad-placeholder">Google Ads Area</div>
     </nav>
 
     <header>
         <h1>Kediniz Ne Anlatıyor?</h1>
-        <p>Ruh halini seç, sesini dinle ve onu daha iyi anla.</p>
+        <p>Patili dostunuzun gizli dünyasını keşfedin.</p>
     </header>
 
     <main class="container">
         <div class="card" onclick="playSound('angry')">
-            <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&w=300&q=80" alt="Sinirli Kedi">
+            <div class="badge red">SİNİRLİ</div>
+            <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?w=400" alt="Sinirli">
             <div class="info">
-                <h3>Sinirli / Savunmacı</h3>
+                <h3>Savunma Modu</h3>
                 <button class="btn-play">Sesi Dinle</button>
             </div>
-            <audio id="angry" src="https://www.soundjay.com/nature/sounds/cat-hiss-01.mp3"></audio>
+            <audio id="angry" src="https://www.myinstants.com/media/sounds/hissing-cat.mp3"></audio>
         </div>
 
         <div class="card" onclick="playSound('happy')">
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=300&q=80" alt="Mutlu Kedi">
+            <div class="badge green">MUTLU</div>
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400" alt="Mutlu">
             <div class="info">
-                <h3>Mutlu / Mırıltı</h3>
+                <h3>Huzurlu Mırıltı</h3>
                 <button class="btn-play">Sesi Dinle</button>
             </div>
-            <audio id="happy" src="https://www.soundjay.com/nature/sounds/cat-purr-01.mp3"></audio>
+            <audio id="happy" src="https://www.myinstants.com/media/sounds/cat-purring.mp3"></audio>
         </div>
 
         <div class="card" onclick="playSound('hungry')">
-            <img src="https://images.unsplash.com/photo-1573865526739-10659fef78a5?auto=format&fit=crop&w=300&q=80" alt="Acıkmış Kedi">
+            <div class="badge orange">AÇIKMIŞ</div>
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fef78a5?w=400" alt="Aç">
             <div class="info">
-                <h3>Acıkmış / Miyavlama</h3>
+                <h3>Yemek İstiyorum</h3>
                 <button class="btn-play">Sesi Dinle</button>
             </div>
-            <audio id="hungry" src="https://www.soundjay.com/nature/sounds/cat-meow-01.mp3"></audio>
+            <audio id="hungry" src="https://www.myinstants.com/media/sounds/classic_meow.mp3"></audio>
+        </div>
+
+        <div class="card" onclick="playSound('playful')">
+            <div class="badge blue">OYUNBAZ</div>
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=400" alt="Oyun">
+            <div class="info">
+                <h3>Avlanma Modu</h3>
+                <button class="btn-play">Sesi Dinle</button>
+            </div>
+            <audio id="playful" src="https://www.myinstants.com/media/sounds/cat-meow-8246.mp3"></audio>
+        </div>
+
+        <div class="card" onclick="playSound('tired')">
+            <div class="badge purple">YORGUN</div>
+            <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400" alt="Yorgun">
+            <div class="info">
+                <h3>Uykum Var</h3>
+                <button class="btn-play">Sesi Dinle</button>
+            </div>
+            <audio id="tired" src="https://www.myinstants.com/media/sounds/cat-yawn.mp3"></audio>
         </div>
     </main>
 
-    <section class="donation-box">
-        <h3>Bize Destek Olmak İster misiniz?</h3>
-        <p>Sitemizi geliştirmek ve kedilere mama almak için bağış yapabilirsiniz.</p>
-        <a href="#" class="donate-btn">☕ Bana Bir Kahve Ismarla</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 CatMood - Tüm Hakları Saklıdır.</p>
-    </footer>
+    <div class="donation-section">
+        <a href="#" class="donate-btn">☕ Kedilere Mama Bağışla</a>
+    </div>
 
     <script src="script.js"></script>
 </body>
