@@ -5,54 +5,45 @@ body {
     align-items: center;
     justify-content: center;
     font-family: 'Fredoka', sans-serif;
-    background-color: #f0f2f5; /* Göz yormayan gri-mavi arka plan */
-    background-image: radial-gradient(#6c5ce722 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-color: #fce4ec;
+    overflow: hidden;
+}
+
+/* 7 Saniye Gecikmeli Takip Eden Kedi */
+#follower-cat {
+    position: fixed;
+    width: 50px;
+    pointer-events: none;
+    z-index: 10000;
+    transition: all 7s cubic-bezier(0.1, 0.1, 0.1, 1);
+    left: 0;
+    top: 0;
 }
 
 .main-container {
     text-align: center;
     background: white;
-    padding: 60px;
-    border-radius: 50px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
-
-.cat-icon {
-    font-size: 80px;
-    margin-bottom: 20px;
-}
-
-h1 {
-    color: #2d3436;
-    margin-bottom: 40px;
+    padding: 50px;
+    border-radius: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 #meow-btn {
     background: #6c5ce7;
     color: white;
     border: none;
-    padding: 25px 60px;
-    font-size: 24px;
+    padding: 20px 50px;
+    font-size: 22px;
     font-weight: bold;
     border-radius: 100px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 10px 0 #4834d4;
-}
-
-#meow-btn:hover {
-    transform: translateY(-3px);
-    background: #a29bfe;
+    box-shadow: 0 8px 0 #4834d4;
+    transition: 0.1s;
 }
 
 #meow-btn:active {
-    transform: translateY(7px);
-    box-shadow: 0 3px 0 #4834d4;
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #4834d4;
 }
 
-#status-text {
-    margin-top: 30px;
-    color: #636e72;
-    font-size: 14px;
-}
+#status-text { margin-top: 20px; color: #888; }
