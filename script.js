@@ -1,29 +1,38 @@
-const follower = document.getElementById('follower');
+// 7 Saniyelik Takip Sistemi
+const cat = document.getElementById('follower-cat');
 
-// Piksel Kedi Fareyi Takip Etsin
 document.addEventListener('mousemove', (e) => {
-    // Hafif gecikme efekti için delay ekliyoruz
-    setTimeout(() => {
-        follower.style.left = (e.pageX + 15) + 'px';
-        follower.style.top = (e.pageY + 15) + 'px';
-    }, 50);
+    // Fare koordinatlarını al ve kediye ata
+    // CSS'deki 'transition: 7s' sayesinde kedi oraya 7 saniyede varacak
+    cat.style.left = (e.clientX - 20) + 'px';
+    cat.style.top = (e.clientY - 20) + 'px';
 });
 
-// Sesleri Aktifleştirme Fonksiyonu
-function activateAudio() {
-    // Tarayıcıya ses çalma yetkisi vermek için boş bir ses tetikliyoruz
-    const emptyAudio = new Audio();
-    emptyAudio.play().catch(() => {});
-    document.getElementById('enable-audio-btn').innerText = "✅ Aktif!";
+// Ses Kilidini Kökten Çözme
+let audioUnlocked = false;
+
+function unlockAudio() {
+    audioUnlocked = true;
+    const btn = document.getElementById('activate-btn');
+    btn.style.background = "#fd79a8";
+    btn.innerText = "✅ Sesler Hazır!";
+    
+    // Küçük bir onay sesi çal (isteğe bağlı)
+    console.log("Ses sistemi kullanıcı tarafından onaylandı.");
 }
 
-// Miyavlama Fonksiyonu
-function playSound(id) {
+function playCatSound(id) {
+    if (!audioUnlocked) {
+        alert("Lütfen önce sağ üstteki 'Sesleri Aktifleştir' butonuna basın!");
+        return;
+    }
+
     const sound = document.getElementById(id);
     if (sound) {
-        sound.currentTime = 0; // Başa sar
-        sound.play().catch(err => {
-            alert("Lütfen önce yukarıdaki 'Sesleri Aktifleştir' butonuna basın!");
+        sound.pause();
+        sound.currentTime = 0;
+        sound.play().catch(e => {
+            console.error("Ses oynatılamadı:", e);
         });
     }
 }
